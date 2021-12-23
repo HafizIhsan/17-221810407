@@ -880,6 +880,20 @@
                     </div>
                 </div>
             </div>
+            <footer class="footer pt-3  ">
+                <div class="container-fluid">
+                    <div class="row align-items-center justify-content-lg-between">
+                        <div class="col-lg-6 mb-lg-0 mb-4">
+                            <div class="copyright text-center text-sm text-muted text-lg-start">
+                                ©
+                                <script>
+                                    document.write(new Date().getFullYear())
+                                </script>, by M. Hafiz Al Ihsan
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
     </main>
     <!--   Core JS Files   -->
     <script src="../assets/js/core/popper.min.js"></script>
@@ -899,12 +913,14 @@
     </script>
     <script>
         window.setTimeout("waktu()", 1000);
- 
-	    function waktu() {
-            var waktu = new Date().toLocaleString("id-ID", {timeZone: "Asia/Jayapura"});
+
+        function waktu() {
+            var waktu = new Date().toLocaleString("id-ID", {
+                timeZone: "Asia/Jayapura"
+            });
             setTimeout("waktu()", 1000);
             document.getElementById("tanggal").innerHTML = waktu + " WIT";
-	    }
+        }
     </script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
