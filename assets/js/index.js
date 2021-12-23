@@ -147,35 +147,39 @@ async function renderData() {
 
     let data_arrival_time = 0;
 
-    sort_data_arrivals_today.forEach((item) => {
-        data_arrival_time = String(Number(`${item.flight.time.scheduled.arrival_time}`) + 900);
+    if (sort_data_arrivals_today.length != 0) {
+        sort_data_arrivals_today.forEach((item) => {
+            data_arrival_time = String(Number(`${item.flight.time.scheduled.arrival_time}`) + 900);
+            table_arrival +=
+                "<tr><td>" +
+                "<div class='d-flex px-2 py-1'>" +
+                "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + data_arrival_time.substr(0, 2) + ":" + data_arrival_time.substr(2, 2) + " WIT</h6></div>" +
+                "</div></td>" +
+                "<td>" +
+                "<div class='d-flex px-2 py-1'>" +
+                "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.identification.number.default}` + "</h6></div>" +
+                "</div></td>" +
+                "<td>" +
+                "<div class='d-flex px-2 py-1'>" +
+                "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.airport.origin.position.region.city}` + " (" + `${item.flight.airport.origin.code.iata}` + ")" + "</h6></div>" +
+                "</div></td>" +
+                "<td>" +
+                "<div class='d-flex px-2 py-1'>" +
+                "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.airline.name}` + "</h6></div>" +
+                "</div></td>" +
+                "<td>" +
+                "<div class='d-flex px-2 py-1'>" +
+                "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.aircraft.model.code}` + "</h6></div>" +
+                "</div></td>" +
+                "<td>" +
+                "<div class='d-flex px-2 py-1'>" +
+                "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.status.text}` + "</h6></div>" +
+                "</div></td></tr>";
+        });
+    } else {
         table_arrival +=
-            "<tr><td>" +
-            "<div class='d-flex px-2 py-1'>" +
-            "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + data_arrival_time.substr(0, 2) + ":" + data_arrival_time.substr(2, 2) + " WIT</h6></div>" +
-            "</div></td>" +
-            "<td>" +
-            "<div class='d-flex px-2 py-1'>" +
-            "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.identification.number.default}` + "</h6></div>" +
-            "</div></td>" +
-            "<td>" +
-            "<div class='d-flex px-2 py-1'>" +
-            "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.airport.origin.position.region.city}` + " (" + `${item.flight.airport.origin.code.iata}` + ")" + "</h6></div>" +
-            "</div></td>" +
-            "<td>" +
-            "<div class='d-flex px-2 py-1'>" +
-            "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.airline.name}` + "</h6></div>" +
-            "</div></td>" +
-            "<td>" +
-            "<div class='d-flex px-2 py-1'>" +
-            "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.aircraft.model.code}` + "</h6></div>" +
-            "</div></td>" +
-            "<td>" +
-            "<div class='d-flex px-2 py-1'>" +
-            "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.status.text}` + "</h6></div>" +
-            "</div></td></tr>";
-    });
-
+            "<tr><td class='text-center'><div class='d-flex px-2 py-1'><div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>Data Not Available</h6></div></div></td></tr>";
+    };
     table_arrival += "</tbody></table>";
     airport_arrival.innerHTML = table_arrival;
 
@@ -211,34 +215,39 @@ async function renderData() {
         return sa - sb;
     });
 
-    sort_data_departures_today.forEach((item) => {
-        data_departure_time = String(Number(`${item.flight.time.scheduled.departure_time}`) + 900);
+    if (sort_data_departures_today.length != 0) {
+        sort_data_departures_today.forEach((item) => {
+            data_departure_time = String(Number(`${item.flight.time.scheduled.departure_time}`) + 900);
+            table_departure +=
+                "<tr><td>" +
+                "<div class='d-flex px-2 py-1'>" +
+                "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + data_departure_time.substr(0, 2) + ":" + data_departure_time.substr(2, 2) + " WIT</h6></div>" +
+                "</div></td>" +
+                "<td>" +
+                "<div class='d-flex px-2 py-1'>" +
+                "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.identification.number.default}` + "</h6></div>" +
+                "</div></td>" +
+                "<td>" +
+                "<div class='d-flex px-2 py-1'>" +
+                "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.airport.destination.position.region.city}` + " (" + `${item.flight.airport.destination.code.iata}` + ")" + "</h6></div>" +
+                "</div></td>" +
+                "<td>" +
+                "<div class='d-flex px-2 py-1'>" +
+                "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.airline.name}` + "</h6></div>" +
+                "</div></td>" +
+                "<td>" +
+                "<div class='d-flex px-2 py-1'>" +
+                "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.aircraft.model.code}` + "</h6></div>" +
+                "</div></td>" +
+                "<td>" +
+                "<div class='d-flex px-2 py-1'>" +
+                "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.status.text}` + "</h6></div>" +
+                "</div></td></tr>";
+        });
+    } else {
         table_departure +=
-            "<tr><td>" +
-            "<div class='d-flex px-2 py-1'>" +
-            "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + data_departure_time.substr(0, 2) + ":" + data_departure_time.substr(2, 2) + " WIT</h6></div>" +
-            "</div></td>" +
-            "<td>" +
-            "<div class='d-flex px-2 py-1'>" +
-            "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.identification.number.default}` + "</h6></div>" +
-            "</div></td>" +
-            "<td>" +
-            "<div class='d-flex px-2 py-1'>" +
-            "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.airport.destination.position.region.city}` + " (" + `${item.flight.airport.destination.code.iata}` + ")" + "</h6></div>" +
-            "</div></td>" +
-            "<td>" +
-            "<div class='d-flex px-2 py-1'>" +
-            "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.airline.name}` + "</h6></div>" +
-            "</div></td>" +
-            "<td>" +
-            "<div class='d-flex px-2 py-1'>" +
-            "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.aircraft.model.code}` + "</h6></div>" +
-            "</div></td>" +
-            "<td>" +
-            "<div class='d-flex px-2 py-1'>" +
-            "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.status.text}` + "</h6></div>" +
-            "</div></td></tr>";
-    });
+            "<tr><td class='text-center'><div class='d-flex px-2 py-1'><div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>Data Not Available</h6></div></div></td></tr>";
+    };
 
     table_departure += "</tbody></table>";
     airport_departure.innerHTML = table_departure;
