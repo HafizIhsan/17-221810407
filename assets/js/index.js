@@ -150,9 +150,16 @@ async function renderData() {
     const arrival_today = data_arrivals_today.length;
     const sum_arrival = document.getElementById("jumlah_arrival");
     sum_arrival.innerText = arrival_today;
+
+    const sort_data_arrivals_today = data_arrivals_today.sort((a, b) => {
+        let sa = Number(a.flight.time.scheduled.arrival_time),
+            sb = Number(b.flight.time.scheduled.arrival_time);
+        return sa - sb;
+    });
+
     let data_arrival_time = 0;
 
-    data_arrivals_today.forEach((item) => {
+    sort_data_arrivals_today.forEach((item) => {
         data_arrival_time = String(Number(`${item.flight.time.scheduled.arrival_time}`) + 900);
         table_arrival +=
             "<tr><td>" +
@@ -206,7 +213,13 @@ async function renderData() {
     sum_departure.innerText = departure_today;
     let data_departure_time = 0;
 
-    data_departures_today.forEach((item) => {
+    const sort_data_departures_today = data_departures_today.sort((a, b) => {
+        let sa = Number(a.flight.time.scheduled.departure_time),
+            sb = Number(b.flight.time.scheduled.departure_time);
+        return sa - sb;
+    });
+
+    sort_data_departures_today.forEach((item) => {
         data_departure_time = String(Number(`${item.flight.time.scheduled.departure_time}`) + 900);
         table_departure +=
             "<tr><td>" +
