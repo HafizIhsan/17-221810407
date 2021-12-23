@@ -89,9 +89,12 @@
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                         <div class="input-group">
-
                         </div>
                     </div>
+                    <ul class="navbar-nav  justify-content-end">
+                        <li class="nav-item d-flex align-items-center text-body font-weight-bold px-0" id="tanggal">
+                        </li>
+                    </ul>
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
@@ -114,8 +117,8 @@
                     <div class="card">
                         <div class="card-body p-3">
                             <div class="d-flex flex-column h-100">
-                                <h5 class="font-weight-bolder">Bandar Udara Mozes Kilangin</h5>
-                                <p class="mb-5">Timika Airport atau lebih dikenal dengan Bandar Udara Mozes Kilangin (IATA: TIM, ICAO: WAYY lama: WABP) adalah bandar udara yang terletak di Timika, Kabupaten Mimika, provinsi Papua, Indonesia.</p>
+                                <h5 class="font-weight-bolder">Bandar Udara Mozes Kilangin Timika</h5>
+                                <p class="mb-5">Timika Airport atau lebih dikenal dengan Bandar Udara Mozes Kilangin (IATA: TIM, ICAO: WAYY) adalah bandar udara yang terletak di Timika, Kabupaten Mimika, provinsi Papua, Indonesia.</p>
                                 <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="https://id.wikipedia.org/wiki/Bandar_Udara_Mozes_Kilangin" target="_blank">Read More
                                     <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
                                 </a>
@@ -130,39 +133,56 @@
                 </div>
             </div>
             <div class="row mt-4">
-                <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
                     <div class="card">
                         <div class="card-body p-3">
                             <div class="row">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Sky</p>
-                                    <h5 class="font-weight-bolder mb-0" id="weather-kondisi">
+                                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Weather</p>
+                                    <h5 class="font-weight-bolder mb-0" id="weather-kondisi">Cloudy
                                     </h5>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
                     <div class="card">
                         <div class="card-body p-3">
                             <div class="row">
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Temperature</p>
-                                    <div id="weather-temp"></div>
+                                    <div id="weather-temp">
+                                        <h5 class="font-weight-bolder mb-0">30&deg;C</h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
                     <div class="card">
                         <div class="card-body p-3">
                             <div class="row">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Jumlah Kedatangan Hari Ini</p>
-                                    <h5 class="font-weight-bolder mb-0" id="jumlah_arrival">
-                                    </h5>
+                                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Wind Speed</p>
+                                    <div id="weather-windSpeed">
+                                        <h5 class='font-weight-bolder mb-0'>Mod<span class='text-success text-sm font-weight-bolder'> 9 mph</span></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                    <div class="card">
+                        <div class="card-body p-3">
+                            <div class="row">
+                                <div class="numbers">
+                                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Wind Direction</p>
+                                    <div id="weather-windDirection">
+                                        <h5 class='font-weight-bolder mb-0'>From northeast<span class='text-success text-sm font-weight-bolder'> 60&deg;</span></h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -170,39 +190,41 @@
                 </div>
             </div>
             <div class="row mt-4">
-                <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+                <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
                     <div class="card">
                         <div class="card-body p-3">
                             <div class="row">
-                                <div class="numbers">
-                                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Wind Speed</p>
-                                    <div id="weather-windSpeed"></div>
-                                    </h5>
+                                <div class="col-4 text-end">
+                                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                        <img class="ni ni-money-coins text-lg opacity-10" src="../assets/img/arrival.svg"></img>
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="numbers">
+                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Number of Arrivals (Today)</p>
+                                        <h5 class="font-weight-bolder mb-0" id="jumlah_arrival">6
+                                        </h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+                <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
                     <div class="card">
                         <div class="card-body p-3">
                             <div class="row">
-                                <div class="numbers">
-                                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Wind Direction</p>
-                                    <div id="weather-windDirection"></div>
-                                    </h5>
+                                <div class="col-4 text-end">
+                                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                        <img class="ni ni-money-coins text-lg opacity-10" src="../assets/img/departure.svg"></img>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
-                    <div class="card">
-                        <div class="card-body p-3">
-                            <div class="row">
-                                <div class="numbers">
-                                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Jumlah Keberangkatan Hari Ini</p>
-                                    <div id="jumlah_departure"></div>
+                                <div class="col-8">
+                                    <div class="numbers">
+                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Number of Departures (Today)</p>
+                                        <h5 class="font-weight-bolder mb-0" id="jumlah_departure">7
+                                        </h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -210,70 +232,654 @@
                 </div>
             </div>
             <div class="row my-4">
-                <div class="col-lg-6">
+                <div class="col-lg-13">
                     <div class="card">
                         <div class="card-header pb-0">
                             <div class="row">
                                 <div class="col-lg-6 col-7">
-                                    <h6>Arrival List</h6>
+                                    <h6>Arrivals</h6>
                                 </div>
                             </div>
                         </div>
                         <div class="card-body px-0 pb-2">
                             <div class="table-responsive">
-                                <div id="arrival"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-header pb-0">
-                            <div class="row">
-                                <div class="col-lg-6 col-7">
-                                    <h6>Departure List</h6>
+                                <div id="arrival">
+                                    <table class='table align-items-center mb-0'>
+                                        <thead>
+                                            <tr>
+                                                <th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Time</th>
+                                                <th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Flight</th>
+                                                <th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>From</th>
+                                                <th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Airline</th>
+                                                <th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Aircraft</th>
+                                                <th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>11:15 WIT</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>ID6187</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Jayapura (DJJ)</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Batik Air</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>A320</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Landed 12:21</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>10:55 WIT</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>SJ589</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Jayapura (DJJ)</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Sriwijaya Air</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>B738</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Landed 11:47</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>10:55 WIT</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>GA654</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Makassar (UPG)</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Garuda Indonesia</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>B738</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Landed 10:43</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>10:45 WIT</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>ID6260</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Makassar (UPG)</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Batik Air</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>B738</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Landed 10:22</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>10:35 WIT</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>IL7384</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Wamena (WMX)</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Trigana Air</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>73F</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Unknown</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>10:30 WIT</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>SJ604</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Sorong (SOQ)</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Sriwijaya Air</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>735</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Unknown</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card-body px-0 pb-2">
-                            <div class="table-responsive">
-                                <div id="departure"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- <div class="row mt-4">
+            <div class="row my-4">
                 <div class="col-lg-13">
-                    <div class="card z-index-2">
-                        <div class="card-body p-3">
-                            <div class="chart flourish-embed flourish-chart" data-src="visualisation/8190935">
-                                <script src="https://public.flourish.studio/resources/embed.js"></script>
+                    <div class="card">
+                        <div class="card-header pb-0">
+                            <div class="row">
+                                <div class="col-lg-6 col-7">
+                                    <h6>Departures</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body px-0 pb-2">
+                            <div class="table-responsive">
+                                <div id="departure">
+                                    <table class='table align-items-center mb-0'>
+                                        <thead>
+                                            <tr>
+                                                <th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Time</th>
+                                                <th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Flight</th>
+                                                <th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>To</th>
+                                                <th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Airline</th>
+                                                <th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Aircraft</th>
+                                                <th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>11:55 WIT</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>ID6187</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Jakarta (CGK)</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Batik Air</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>A320</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Delayed dep 13:08</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>11:40 WIT</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>SJ589</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Makassar (UPG)</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Sriwijaya Air</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>B738</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Departed 12:52</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>11:40 WIT</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>GA654</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Jayapura (DJJ)</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Garuda Indonesia</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>B738</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Departed 12:07</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>11:25 WIT</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>ID8186</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Jayapura (DJJ)</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Batik Air</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>B738</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Departed 11:38</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>11:15 WIT</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>IW1608</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Nabire (NBX)</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Wings Air</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>AT76</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Departed 09:03</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>11:10 WIT</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>SJ605</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Sorong (SOQ)</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Sriwijaya Air</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>735</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Estimated dep 11:10*</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>11:05 WIT</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>IL7385</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Wamena (WMX)</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Trigana Air</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>73F</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class='d-flex px-2 py-1'>
+                                                        <div class='d-flex flex-column justify-content-center'>
+                                                            <h6 class='mb-0 text-sm'>Unknown</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row mt-4">
-                <div class="col-lg-6">
+                <div class="col-lg-13">
                     <div class="card z-index-2">
                         <div class="card-body p-3">
-                            <div class="chart flourish-embed flourish-chart" data-src="visualisation/8191156">
+                            <div class="chart flourish-embed flourish-chart" data-src="visualisation/8209301">
                                 <script src="https://public.flourish.studio/resources/embed.js"></script>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="card z-index-2">
-                        <div class="card-body p-3">
-                            <div class="chart flourish-embed flourish-chart" data-src="visualisation/8191052">
-                                <script src="https://public.flourish.studio/resources/embed.js"></script>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+            </div>
     </main>
     <!--   Core JS Files   -->
     <script src="../assets/js/core/popper.min.js"></script>
@@ -290,6 +896,15 @@
             }
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
+    </script>
+    <script>
+        window.setTimeout("waktu()", 1000);
+ 
+	    function waktu() {
+            var waktu = new Date().toLocaleString("id-ID", {timeZone: "Asia/Jayapura"});
+            setTimeout("waktu()", 1000);
+            document.getElementById("tanggal").innerHTML = waktu + " WIT";
+	    }
     </script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>

@@ -105,6 +105,8 @@ async function renderData() {
 
     //memasukkan nama airport menggunakan data response
 
+
+
     // Data Weather
     const data_weather = await Flightradar24Data.getAirportWeather({
         iata: "TIM",
@@ -135,7 +137,8 @@ async function renderData() {
     const date = new Date();
     const today = String(date.getFullYear()) + String(date.getMonth() + 1) + String(date.getDate());
 
-    let table = "<table class='table align-items-center mb-0'><thead><tr>" +
+    let table_arrival = "<table class='table align-items-center mb-0'><thead><tr>" +
+        "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Time</th>" +
         "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Flight</th>" +
         "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>From</th>" +
         "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Airline</th>" +
@@ -147,10 +150,16 @@ async function renderData() {
     const arrival_today = data_arrivals_today.length;
     const sum_arrival = document.getElementById("jumlah_arrival");
     sum_arrival.innerText = arrival_today;
+    let data_arrival_time = 0;
 
     data_arrivals_today.forEach((item) => {
-        table +=
+        data_arrival_time = String(Number(`${item.flight.time.scheduled.arrival_time}`) + 900);
+        table_arrival +=
             "<tr><td>" +
+            "<div class='d-flex px-2 py-1'>" +
+            "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + data_arrival_time.substr(0, 2) + ":" + data_arrival_time.substr(2, 2) + " WIT</h6></div>" +
+            "</div></td>" +
+            "<td>" +
             "<div class='d-flex px-2 py-1'>" +
             "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.identification.number.default}` + "</h6></div>" +
             "</div></td>" +
@@ -172,18 +181,62 @@ async function renderData() {
             "</div></td></tr>";
     });
 
-    table += "</tbody></table>";
-    airport_arrival.innerHTML = table;
+    table_arrival += "</tbody></table>";
+    airport_arrival.innerHTML = table_arrival;
 
     // Data Departures
     const data_departures = await Flightradar24Data.getAirportDepartures({
         iata: "TIM",
     });
 
+    let table_departure = "<table class='table align-items-center mb-0'><thead><tr>" +
+        "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Time</th>" +
+        "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Flight</th>" +
+        "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>To</th>" +
+        "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Airline</th>" +
+        "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Aircraft</th>" +
+        "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Status</th>" +
+        "</tr></thead><tbody>";
+
     const airport_departure = document.getElementById("departure");
-    const data_departures_today = data_departures.filter(item => `${item.flight.time.scheduled.arrival_date}` == today);
+    const data_departures_today = data_departures.filter(item => `${item.flight.time.scheduled.departure_date}` == today);
+    const departure_today = data_departures_today.length
 
+    const sum_departure = document.getElementById("jumlah_departure");
+    sum_departure.innerText = departure_today;
+    let data_departure_time = 0;
 
+    data_departures_today.forEach((item) => {
+        data_departure_time = String(Number(`${item.flight.time.scheduled.departure_time}`) + 900);
+        table_departure +=
+            "<tr><td>" +
+            "<div class='d-flex px-2 py-1'>" +
+            "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + data_departure_time.substr(0, 2) + ":" + data_departure_time.substr(2, 2) + " WIT</h6></div>" +
+            "</div></td>" +
+            "<td>" +
+            "<div class='d-flex px-2 py-1'>" +
+            "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.identification.number.default}` + "</h6></div>" +
+            "</div></td>" +
+            "<td>" +
+            "<div class='d-flex px-2 py-1'>" +
+            "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.airport.destination.position.region.city}` + " (" + `${item.flight.airport.destination.code.iata}` + ")" + "</h6></div>" +
+            "</div></td>" +
+            "<td>" +
+            "<div class='d-flex px-2 py-1'>" +
+            "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.airline.name}` + "</h6></div>" +
+            "</div></td>" +
+            "<td>" +
+            "<div class='d-flex px-2 py-1'>" +
+            "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.aircraft.model.code}` + "</h6></div>" +
+            "</div></td>" +
+            "<td>" +
+            "<div class='d-flex px-2 py-1'>" +
+            "<div class='d-flex flex-column justify-content-center'><h6 class='mb-0 text-sm'>" + `${item.flight.status.text}` + "</h6></div>" +
+            "</div></td></tr>";
+    });
+
+    table_departure += "</tbody></table>";
+    airport_departure.innerHTML = table_departure;
 }
 
 document.addEventListener("DOMContentLoaded", renderData);
