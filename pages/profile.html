@@ -106,6 +106,10 @@
                         </div>
                     </div>
                     <ul class="navbar-nav  justify-content-end">
+                        <li class="nav-item d-flex align-items-center text-body font-weight-bold px-0" id="tanggal">
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                                 <div class="sidenav-toggler-inner">
@@ -197,6 +201,17 @@
                 damping: '0.5'
             }
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+    </script>
+    <script>
+        window.setTimeout("waktu()", 1000);
+
+        function waktu() {
+            var waktu = new Date().toLocaleString("id-ID", {
+                timeZone: "Asia/Jayapura"
+            });
+            setTimeout("waktu()", 1000);
+            document.getElementById("tanggal").innerHTML = waktu + " WIT";
         }
     </script>
     <!-- Github buttons -->

@@ -138,7 +138,7 @@ async function renderData() {
     const today = String(date.getFullYear()) + String(date.getMonth() + 1) + String(date.getDate());
 
     let table_arrival = "<table class='table align-items-center mb-0'><thead><tr>" +
-        "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Time Schedule</th>" +
+        "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Time Scheduled</th>" +
         "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Flight</th>" +
         "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>From</th>" +
         "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Airline</th>" +
@@ -147,7 +147,8 @@ async function renderData() {
         "</tr></thead><tbody>";
 
     const data_arrivals_today = data_arrivals.filter(item => `${item.flight.time.scheduled.arrival_date}` == today);
-    const arrival_today = data_arrivals_today.length;
+    const sum_arrivals_landed = data_arrivals_today.filter(item => item.flight.status.text.match(/Landed.*/g));
+    const arrival_today = sum_arrivals_landed.length;
     const sum_arrival = document.getElementById("jumlah_arrival");
     sum_arrival.innerText = arrival_today;
 
@@ -197,7 +198,7 @@ async function renderData() {
     });
 
     let table_departure = "<table class='table align-items-center mb-0'><thead><tr>" +
-        "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Time Schedule</th>" +
+        "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Time Scheduled</th>" +
         "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Flight</th>" +
         "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>To</th>" +
         "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Airline</th>" +
@@ -207,7 +208,8 @@ async function renderData() {
 
     const airport_departure = document.getElementById("departure");
     const data_departures_today = data_departures.filter(item => `${item.flight.time.scheduled.departure_date}` == today);
-    const departure_today = data_departures_today.length
+    const sum_departures_departed = data_departures_today.filter(item => item.flight.status.text.match(/Departed.*/g));
+    const departure_today = sum_departures_departed.length
 
     const sum_departure = document.getElementById("jumlah_departure");
     sum_departure.innerText = departure_today;
