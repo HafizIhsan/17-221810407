@@ -147,12 +147,15 @@ async function renderData() {
         "</tr></thead><tbody>";
 
     const data_arrivals_today = data_arrivals.filter(item => `${item.flight.time.scheduled.arrival_date}` == today);
-    const sum_arrivals_landed = data_arrivals_today.filter(item => item.flight.status.text.match(/Landed.*/g));
+
+    const data_arrivals_today_cleanDouble = data_arrivals_today.filter((arr, index, self) => index === self.findIndex((t) => (t.flight.identification.number.default === arr.flight.identification.number.default)));
+
+    const sum_arrivals_landed = data_arrivals_today_cleanDouble.filter(item => item.flight.status.text.match(/Landed.*/g));
     const arrival_today = sum_arrivals_landed.length;
     const sum_arrival = document.getElementById("jumlah_arrival");
     sum_arrival.innerText = arrival_today;
 
-    const sort_data_arrivals_today = data_arrivals_today.sort((a, b) => {
+    const sort_data_arrivals_today = data_arrivals_today_cleanDouble.sort((a, b) => {
         let sa = Number(a.flight.time.scheduled.arrival_time),
             sb = Number(b.flight.time.scheduled.arrival_time);
         return sa - sb;
@@ -208,14 +211,17 @@ async function renderData() {
 
     const airport_departure = document.getElementById("departure");
     const data_departures_today = data_departures.filter(item => `${item.flight.time.scheduled.departure_date}` == today);
-    const sum_departures_departed = data_departures_today.filter(item => item.flight.status.text.match(/Departed.*/g));
+
+    const data_departures_today_cleanDouble = data_departures_today.filter((arr, index, self) => index === self.findIndex((t) => (t.flight.identification.number.default === arr.flight.identification.number.default)));
+
+    const sum_departures_departed = data_departures_today_cleanDouble.filter(item => item.flight.status.text.match(/Departed.*/g));
     const departure_today = sum_departures_departed.length
 
     const sum_departure = document.getElementById("jumlah_departure");
     sum_departure.innerText = departure_today;
     let data_departure_time = 0;
 
-    const sort_data_departures_today = data_departures_today.sort((a, b) => {
+    const sort_data_departures_today = data_departures_today_cleanDouble.sort((a, b) => {
         let sa = Number(a.flight.time.scheduled.departure_time),
             sb = Number(b.flight.time.scheduled.departure_time);
         return sa - sb;
