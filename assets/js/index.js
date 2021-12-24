@@ -122,7 +122,7 @@ async function renderData() {
     const today = String(date.getFullYear()) + String(date.getMonth() + 1) + String(date.getDate());
 
     let table_arrival = "<table class='table align-items-center mb-0'><thead><tr>" +
-        "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Time Scheduled</th>" +
+        "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Time Schedule</th>" +
         "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Flight</th>" +
         "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>From</th>" +
         "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Airline</th>" +
@@ -198,7 +198,7 @@ async function renderData() {
     });
 
     let table_departure = "<table class='table align-items-center mb-0'><thead><tr>" +
-        "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Time Scheduled</th>" +
+        "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Time Schedule</th>" +
         "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Flight</th>" +
         "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>To</th>" +
         "<th class='text-uppercase text-secondary text-xxs font-weight-bolder opacity-7'>Airline</th>" +
